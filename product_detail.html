@@ -1,0 +1,18 @@
+<!-- templates/product_detail.html （显示所有图片） -->
+{% extends "base.html" %}
+{% block title %}{{ product[1] }} 详情{% endblock %}
+{% block content %}
+<h1 class="mt-4">{{ product[1] }}</h1>
+<div class="row">
+    <div class="col-md-6">
+        {% for image in images %}
+        <img src="{{ url_for('static', filename=image) }}" class="img-fluid detail-img mb-3" alt="{{ product[1] }}">
+        {% endfor %}
+    </div>
+    <div class="col-md-6">
+        <p><strong>类别:</strong> {{ product[2] }}</p>
+        <p><strong>价格:</strong> ¥{{ product[3] }}</p>
+        <p><strong>描述:</strong> {{ product[4] }}</p>
+    </div>
+</div>
+{% endblock %}

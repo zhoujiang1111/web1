@@ -1,0 +1,13 @@
+<!-- templates/add_category.html (新添加) -->
+{% extends "base.html" %}
+{% block title %}添加类别{% endblock %}
+{% block content %}
+<h1 class="mt-4">添加类别</h1>
+<form method="post" class="mt-3">
+    <div class="mb-3">
+        <label for="name" class="form-label">名称</label>
+        <input type="text" class="form-control" id="name" name="name">
+    </div>
+    <button type="submit" class="btn btn-primary">添加</button>
+</form>
+{% endblock %}
