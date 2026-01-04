@@ -1,0 +1,13 @@
+<!-- templates/edit_category.html （新添加） -->
+{% extends "base.html" %}
+{% block title %}编辑类别{% endblock %}
+{% block content %}
+<h1 class="mt-4">编辑类别</h1>
+<form method="post" class="mt-3">
+    <div class="mb-3">
+        <label for="name" class="form-label">名称</label>
+        <input type="text" class="form-control" id="name" name="name" value="{{ category }}">
+    </div>
+    <button type="submit" class="btn btn-primary">更新</button>
+</form>
+{% endblock %}

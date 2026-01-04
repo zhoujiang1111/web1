@@ -1,0 +1,29 @@
+<!-- templates/admin_categories.html （添加编辑按钮） -->
+{% extends "base.html" %}
+{% block title %}类别管理{% endblock %}
+{% block content %}
+<h1 class="mt-4">类别管理</h1>
+<a href="{{ url_for('add_category') }}" class="btn btn-success mb-3">添加类别</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>名称</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for category in categories %}
+        <tr>
+            <td>{{ category[0] }}</td>
+            <td>{{ category[1] }}</td>
+            <td>
+                <a href="{{ url_for('edit_category', category_id=category[0]) }}" class="btn btn-warning btn-sm">编辑</a>
+                <a href="{{ url_for('delete_category', category_id=category[0]) }}" class="btn btn-danger btn-sm">删除</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">返回商品管理</a>
+{% endblock %}

@@ -1,0 +1,24 @@
+<!-- templates/admin_users.html （新添加） -->
+{% extends "base.html" %}
+{% block title %}管理员管理{% endblock %}
+{% block content %}
+<h1 class="mt-4">管理员管理</h1>
+<a href="{{ url_for('add_user') }}" class="btn btn-success mb-3">添加管理员</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>用户名</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user[0] }}</td>
+            <td>{{ user[1] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary">返回商品管理</a>
+{% endblock %}

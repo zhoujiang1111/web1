@@ -1,0 +1,21 @@
+<!-- templates/category.html （移除 | fromjson，直接使用 images 列表） -->
+{% extends "base.html" %}
+{% block title %}{{ category }} 类别{% endblock %}
+{% block content %}
+<h1 class="mt-4">{{ category }} 商品</h1>
+<div class="row">
+    {% for product in products %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            {% if product[5] %}
+            <img src="{{ url_for('static', filename=product[5][0]) }}" class="card-img-top product-img" alt="{{ product[1] }}">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title"><a href="{{ url_for('product_detail', product_id=product[0]) }}">{{ product[1] }}</a></h5>
+                <p class="card-text">价格: ¥{{ product[3] }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

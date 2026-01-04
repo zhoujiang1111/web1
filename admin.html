@@ -1,0 +1,33 @@
+<!-- templates/admin.html -->
+{% extends "base.html" %}
+{% block title %}后台管理{% endblock %}
+{% block content %}
+<h1 class="mt-4">商品管理</h1>
+<a href="{{ url_for('add_product') }}" class="btn btn-success mb-3">添加商品</a>
+<a href="{{ url_for('admin_categories') }}" class="btn btn-info mb-3">管理类别</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>名称</th>
+            <th>类别</th>
+            <th>价格</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr>
+            <td>{{ product[0] }}</td>
+            <td>{{ product[1] }}</td>
+            <td>{{ product[2] }}</td>
+            <td>{{ product[3] }}</td>
+            <td>
+                <a href="{{ url_for('edit_product', product_id=product[0]) }}" class="btn btn-warning btn-sm">编辑</a>
+                <a href="{{ url_for('delete_product', product_id=product[0]) }}" class="btn btn-danger btn-sm">删除</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
